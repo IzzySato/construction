@@ -1,0 +1,18 @@
+.gridDiv {
+  display: grid;
+  grid-template-columns: 30% auto;
+  padding: 10%;
+}
+
+.container {
+  margin-left: 8%;
+}
+
+.estimateContainer {
+  margin: 0 10%;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+}

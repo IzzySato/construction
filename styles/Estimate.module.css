@@ -1,0 +1,21 @@
+
+.container {
+  padding: 5%;
+  border-radius: 10px;
+  background-color: #1e75d8;
+  color: white;
+}
+
+.estimateTitle {
+  color: white;
+  font-size: 1.6rem;
+}
+
+.input {
+  margin-top: 2%;
+  margin-bottom: 3%;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  padding: 1.2%;
+}
