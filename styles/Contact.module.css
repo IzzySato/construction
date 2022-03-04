@@ -1,3 +1,7 @@
+.mainContainer {
+  height: 1200px;
+}
+
 .gridDiv {
   display: grid;
   grid-template-columns: 30% auto;

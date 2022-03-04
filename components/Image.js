@@ -1,10 +1,16 @@
 import { urlFor } from "../sanity";
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
-const Image = ({image }) => {
+const Image = ({images}) => {
+   const handleDragStart = (e) => e.preventDefault();
+  const imageItems = images.map((image) =>
+    <img key="{item}" className='img' src={urlFor(image)} onDragStart={handleDragStart}/>)
+
   return (
-    <div>
-      <img src={urlFor(image)}/>
-    </div>
+    <>
+      <AliceCarousel mouseTracking items={imageItems} />
+    </>
   )
 };
 

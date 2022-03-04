@@ -1,0 +1,69 @@
+.container {
+  margin: 10% 15%;
+}
+
+.search {
+  width: 80%;
+  padding: 1% 2%;
+  border-radius: 5px;
+  border: 0.1px solid black;
+  font-size: 1.2rem;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.searchBtn {
+  padding: 1.3% 2.3%;
+  border-radius: 5px;
+  margin-left: 1%;
+  border: none;
+  background-color: rgb(57, 57, 124);
+}
+
+.searchBtn:hover {
+  cursor: pointer;
+}
+
+.searchIcon {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.todayRequet {
+  margin-top: 10%;
+  border: 2px solid rgb(231, 130, 36);
+  padding: 3%;
+  border-radius: 15px;
+}
+
+.allCusDiv {
+  margin-top: 10%;
+}
+
+.cusUl {
+  margin-top: 10%;
+}
+
+.cusTopGrid {
+  display: grid;
+  grid-template-columns: 60% auto;
+}
+
+.cusName {
+  margin: 0 0 3% 0;
+}
+
+.btn {
+  margin-right: 10%;
+  background-color: rgb(57, 57, 124);
+  border: none;
+  padding: 2% 4%;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn:hover {
+  cursor: pointer;
+}

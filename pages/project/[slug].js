@@ -2,14 +2,22 @@ import { sanityClient } from '../../sanity';
 import Image from '../../components/Image';
 import styles from '../../styles/Project.module.css';
 
+
 const Project = ({
   title,
-  mainImage
+  images,
+  comment,
+  customerName
 }) => {
   return (
     <div className={styles.prjContainer}>
       <h1 className={styles.projTitle}>{title}</h1>
-      <Image image={mainImage}/>
+      <Image images={images}/>
+      <div className={styles.commentSection}>
+        <h2>Customer Comment:</h2>
+        <p>{comment}</p>
+        <p>by {customerName}</p>
+      </div>
     </div>
   )
 };
@@ -18,11 +26,13 @@ export const getServerSideProps = async (pageContext) => {
   const pageSlug = pageContext.query.slug;
   const query = `*[_type == "project" && slug.current == $pageSlug][0] {
     title,
-    mainImage
+    images,
+    comment,
+    customerName
   }`
-  const property = await sanityClient.fetch(query, {pageSlug});
+  const project = await sanityClient.fetch(query, {pageSlug});
 
-  if (!property) {
+  if (!project) {
     return {
       props: null,
       notFound: true
@@ -30,8 +40,10 @@ export const getServerSideProps = async (pageContext) => {
   } else {
     return {
       props: {
-        title: property.title,
-        mainImage: property.mainImage
+        title: project.title,
+        images: project.images,
+        comment: project.comment,
+        customerName: project.customerName
       }
     }
   }

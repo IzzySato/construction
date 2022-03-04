@@ -3,20 +3,27 @@ import styles from '../styles/Nav.module.css';
 
 const Nav = () => {
   return (
-    <nav className={styles.nav}>
+    <div className={styles.wrapper}>
+      <div className={styles.phoneMenu}>
+        <div className={styles.phoneLine}></div>
+        <div className={styles.phoneLine}></div>
+        <div className={styles.phoneLine}></div>
+      </div>
       <img className={styles.logo} alt="logo" src="../images/logo_w_2.svg"/>
-      <ul className={styles.ul}>
-        <li className={styles.li}>
-          <Link href='/'>Home</Link>
-        </li>
-        <li className={styles.li}>
-          <Link href='/about'>About</Link>
-        </li>
-        <li className={styles.li}>
-          <Link href='/contact'>Contact us</Link>
-        </li>
-      </ul>
-    </nav>
+      <nav className={styles.nav}>
+        <ul className={styles.ul}>
+          <li className={styles.li}>
+            <Link href='/'>Home</Link>
+          </li>
+          <li className={styles.li}>
+            <Link href='/about'>About us</Link>
+          </li>
+          <li className={styles.li}>
+            <Link href='/contact'>Contact us</Link>
+          </li>
+        </ul>
+      </nav>
+    </div>
   )
 };
 

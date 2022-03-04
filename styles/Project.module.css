@@ -1,7 +1,17 @@
+
+.prjContainer {
+  margin: 5% 10%;
+}
+
 .projTitle {
+  text-align: left;
   font-size: 1.5rem;
 }
 
 .projImg {
   border-radius: 10px;
+}
+
+.commentSection {
+  text-align: left;
 }

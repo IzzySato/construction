@@ -1,5 +1,6 @@
 .container {
   background-color: #1659a5;
+  position: fixed;
   padding: 2%;
   color: white;
   margin-top: 5%;

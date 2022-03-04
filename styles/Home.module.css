@@ -1,3 +1,45 @@
-.homeContainer {
-  
+.mainImage {
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.6;
+}
+
+.bannerDiv {
+  position: relative;
+}
+
+.bannerMsgDiv {
+  position: absolute;
+  background-color: white;
+  padding: 2% 20%;
+  text-align: center;
+  top: 30%;
+  width: 100%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.estimateBtn {
+  background-color: rgb(24, 24, 114);
+  color: white;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  padding: 3% 2%;
+}
+
+.ourProjDiv {
+  margin-top: 7%;
+  padding: 0 10%;
+}
+
+.projectGrid {
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+}
+
+.projectImages {
+  width: 90%;
+  border-radius: 7px;
+  box-shadow: 2px 2px #88888844;
 }

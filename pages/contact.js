@@ -3,7 +3,7 @@ import Estitame from '../components/Estimate';
 
 const Contact = () => {
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <div className={styles.gridDiv}>
         <img className={styles.image} alt="logo" src="../images/logo_300_300.svg"/>
         <div className={styles.container}>
