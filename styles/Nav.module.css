@@ -1,12 +1,17 @@
 .menuIcon {
   display: block;
-  margin: 2% 3%;
+  padding: 5% 3%;
+}
+
+.nav {
+  border-bottom: 2px solid rgb(29, 29, 92);
 }
 
 .menuLine {
   width: 40px;
   height: 5px;
   margin-bottom: 10px;
+  border-radius: 5px;
   background-color: black;
 }
 
@@ -19,16 +24,35 @@
 }
 
 .li {
-  margin-bottom: 3%;
+  padding: 3%;
 }
 
+.li:hover {
+  background-color: rgb(211, 211, 211);
+}
 .menu {
   display: none;
 }
 
-.menu:checked + .ul {
+.menu:checked ~ .ul {
   display: block;
-  margin: 8% 3%;
+}
+
+.menu:checked + .menuIcon .menuLine:nth-child(2) {
+  display: none;
+}
+
+.menu:checked + .menuIcon .menuLine:nth-child(1) {
+  transition-timing-function: ease-out;
+  transition: 1s all;
+  transform: rotate(50deg);
+  transform-origin: 35% 103%;
+  margin: 0;
+}
+
+.menu:checked + .menuIcon .menuLine:nth-child(3) {
+  transform: rotate(-50deg);
+  margin: 0;
 }
 
 @media screen and (min-width: 990px) {
@@ -36,19 +60,20 @@
   .menuIcon {
     display: none;
   }
-  
+
   .ul {
-    margin: 3% 4%;
-    display: flex;
+    display: block;
   }
   
   .li {
     margin-right: 2%;
-    display: flex;
+    display: inline-flex;
+    padding: 1%;
+    margin: 2% 3%;
   }
   
-  .a {
-    font-size: 1.2rem;
+  .li:hover {
+    background-color: white;
+    border-bottom: 1px solid #000;
   }
-  
 }

@@ -4,20 +4,18 @@ import Link from 'next/link';
 
 const Home = ({projects}) => {
   return (
-   <div>
+   <div className={styles.wrapper}>
      <div className={styles.bannerDiv}>
        {  projects && 
-           projects.map (property => 
-            <div key={property._id}>
-              {/* <img alt="main image" className={styles.mainImage} src={urlFor(property.mainImage)} />  */}
+           projects.map ((project, index) => 
+            <div key={index}>
               {
-                (property.mainImgDisplayLanding) ? 
-                <div className={styles.mainImage} style={{ backgroundImage:`url(${urlFor(property.mainImage)})`}}></div>
+                (project.mainImgDisplayLanding) ? 
+                <div className={styles.mainImage} style={{ backgroundImage:`url(${urlFor(project.mainImage)})`}}></div>
                 : ""
               }
             </div>)
        }
-
        <div className={styles.bannerMsgDiv}>
          <h1>12th Street Construction</h1>
          <Link href='/contact'><p className={styles.estimateBtn} >Request an Estimate Today!</p></Link>
@@ -25,16 +23,19 @@ const Home = ({projects}) => {
      </div>
      <div className={styles.ourProjDiv}>
       <h2>Our Projects</h2>
+      <hr/>
       <div className={styles.projectGrid}>
       {  projects && 
-            projects.map (property => 
-              <div key={property.slug}>
-                {/* <img alt="main image" className={styles.mainImage} src={urlFor(property.mainImage)} />  */}
+           projects.map ((project, index)=>
+              <div className={styles.proDiv}  key={index}>
                 {
-                  <img alt="main image" className={styles.projectImages} src={urlFor(property.mainImage)} /> 
+                  <a href={`/project/${project.slug.current}`}>
+                    <p className={styles.proTitle}>{project.title}</p>
+                    <div className={styles.projectImages} style={{ backgroundImage:`url(${urlFor(project.mainImage)})`}}></div>
+                  </a>
                 }
-              </div>)
-        }
+              </div>
+      )}
       </div>
      </div>
      
@@ -45,7 +46,9 @@ const Home = ({projects}) => {
 export const getServerSideProps = async (pageContext) => {
   const query = `*[_type == "project"] {
     mainImage,
-    mainImgDisplayLanding
+    mainImgDisplayLanding,
+    slug,
+    title
   }`
   const projects = await sanityClient.fetch(query);
 

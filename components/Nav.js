@@ -4,13 +4,13 @@ const Nav = () => {
 
   return(
     // hamburger menu for mobile
-    <nav className={styles.mobileNav}>
+    <nav className={styles.nav}>
+      <input type="checkbox" id="checkMenu" className={styles.menu}/>
       <label htmlFor="checkMenu" className={styles.menuIcon}>
         <div className={styles.menuLine}></div>
         <div className={styles.menuLine}></div>
         <div className={styles.menuLine}></div>
       </label>
-      <input type="checkbox" id="checkMenu" className={styles.menu}/>
       {/* menu list */}
         <ul className={styles.ul}>
           <li className={styles.li}>
