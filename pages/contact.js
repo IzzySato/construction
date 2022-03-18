@@ -14,7 +14,7 @@ const Contact = () => {
         </div>
       </div>
       <div className={styles.estimateContainer}>
-        <Estitame />
+        <Estitame/>
       </div>
     </div>
   )

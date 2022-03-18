@@ -1,56 +1,79 @@
 import styles from '../../styles/Admin.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import {
-  faSearch
-} from "@fortawesome/free-solid-svg-icons";
+        faSearch
+      } from "@fortawesome/free-solid-svg-icons";
+import { useSession,
+         signOut } from "next-auth/react";
+import { getAllRequests } from '../../data/request';
+import { CusList } from './customerReqList';
 
-const CustomerRequest = () => {
+const CustomerRequest = ({customerRequests}) => {
+  const { data: session, status } = useSession();
+  const date = new Date();
+  const today = `${date.getFullYear()}-${((date.getMonth()+1) < 10) ?
+    '0'+(date.getMonth()+1)
+    : date.getMonth()+1 }-${date.getDate()}`;
   return (
-    <div className={styles.container}>
-      <h1>Customer Request</h1>
+    <>
+      {
+      session &&
+      <div className={styles.reqContainer}>
+        <button className={`btn`} onClick={() => signOut()}>Sign out</button>
+        {
+                  console.log(JSON.stringify(session.user.group))
+                }
+      <h1 className={styles.reqTitle}>Customer Request</h1>
       <div>
         <input className={styles.search} placeholder="search" />
-        <button className={styles.searchBtn}>
+        <button className={`btn ${styles.searchBtn}`}>
           <FontAwesomeIcon className={styles.searchIcon} icon={faSearch}/>
         </button>
       </div>
-      <div className={styles.todayRequet}>
-      <h2 className={styles.title}>Today's Customer Requests</h2><hr/>
+      <div className={styles.todayRequest}>
+        <h2 className={styles.todayTitle}>Today's Customer Requests</h2><hr/>
         <ul>
-            <li>
-              <div className={styles.cusTopGrid}>
-                <h3 className={styles.cusName}>Name: John Doe</h3>
-                <div className={styles.btnDiv}>
-                  <button className={styles.btn}>Replay</button>
-                  <button className={styles.btn}>Estimate Done</button>
-                </div>
-              </div>
-              <p>Email: johndoe@gmail.com</p>
-              <p>Address: 1234 main street Vancouver</p>
-              <p>Phone: 123 456 7895</p>
-            </li>
-          </ul>
-      </div>
-      <div className={styles.allCusDiv}>
-        <h2 className={styles.title}>All Customer Requests</h2><hr/>
-        <ul className={styles.cusUl}>
-          <li>
-            <div className={styles.cusTopGrid}>
-              <h3 className={styles.cusName}>Name: John Doe</h3>
-              <div className={styles.btnDiv}>
-                <button className={styles.btn}>Replay</button>
-                <button className={styles.btn}>Estimate Done</button>
-              </div>
-            </div>
-            <p>Email: johndoe@gmail.com</p>
-            <p>Address: 1234 main street Vancouver</p>
-            <p>Phone: 123 456 7895</p>
-          </li>
+        {customerRequests 
+        &&
+        customerRequests.map((customer, index) =>
+           (customer.date === today) ?
+            CusList(customer, session, index)
+            : ''
+        )}
         </ul>
       </div>
+      <div>
+        <div className={styles.allCusDiv}>
+          <h2 className={styles.title}>All Customer Requests</h2><hr/>
+          <ul>
+          { customerRequests 
+              &&
+            customerRequests.map((customer, index) =>
+            CusList(customer, session, index)
+           )}
+          </ul>
+        </div>
+      </div>
     </div>
+    }
+    </>
   )
+};
+
+export const getServerSideProps = async () => {
+  const customerRequests = await getAllRequests();
+  if (!customerRequests) {
+    return {
+      props: null,
+      notFound: true
+    }
+  } else {
+    return {
+      props: {
+        customerRequests
+      }
+    }
+  }
 };
 
 export default CustomerRequest;

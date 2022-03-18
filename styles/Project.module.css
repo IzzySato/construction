@@ -1,6 +1,5 @@
-
 .prjContainer {
-  margin: 5% 10%;
+  margin: 10% 10%;
 }
 
 .projTitle {
@@ -12,6 +11,11 @@
   border-radius: 10px;
 }
 
+.subTitle {
+  font-size: 1.2rem;
+}
+
 .commentSection {
   text-align: left;
+  margin-bottom: 10%;
 }

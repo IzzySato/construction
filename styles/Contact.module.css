@@ -1,11 +1,7 @@
-.mainContainer {
-  height: 1200px;
-}
-
 .gridDiv {
   display: grid;
-  grid-template-columns: 30% auto;
-  padding: 10%;
+  grid-template-columns: 40% auto;
+  padding: 5%;
 }
 
 .container {
@@ -13,10 +9,33 @@
 }
 
 .estimateContainer {
-  margin: 0 10%;
+  margin: 2% 10% 45% 10%;
 }
 
 .image {
   width: 200px;
   height: 200px;
+  margin-left: 25%;
+}
+
+
+@media screen and (max-width: 800px) {
+  .gridDiv { 
+    grid-template-columns: 100%;
+    justify-items: center;
+  }
+
+  .container {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .image {
+    margin: 0;
+  }
+
+  .estimateContainer {
+    margin: 2% 10% 40% 10%;
+  }
+
 }

@@ -1,21 +1,26 @@
-
 .container {
   padding: 5%;
   border-radius: 10px;
-  background-color: #e78719;
-  color: white;
+  color: var(--font-color-one);
+  box-shadow: var(--shadow);
+
 }
 
 .estimateTitle {
-  color: white;
+  color: var(--font-color-one);
   font-size: 1.6rem;
 }
 
 .input {
   margin-top: 2%;
   margin-bottom: 3%;
-  border-radius: 5px;
+  font-size: 0.9rem;
   width: 100%;
-  border: none;
-  padding: 1.2%;
+  padding: 2%;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    margin: 5%;
+  }
 }

@@ -14,7 +14,7 @@ const Project = ({
       <h1 className={styles.projTitle}>{title}</h1>
       <Image images={images}/>
       <div className={styles.commentSection}>
-        <h2>Customer Comment:</h2>
+        <h2 className={styles.subTitle}>Customer Comment:</h2>
         <p>{comment}</p>
         <p>by {customerName}</p>
       </div>

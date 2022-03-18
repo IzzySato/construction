@@ -1,6 +1,8 @@
 import styles from '../styles/Home.module.css';
-import { sanityClient,  urlFor } from '../sanity';
+import { urlFor } from '../sanity';
 import Link from 'next/link';
+import Estimate from '../components/Estimate';
+import { getAllProjects } from '../data/project';
 
 const Home = ({projects}) => {
   return (
@@ -18,7 +20,7 @@ const Home = ({projects}) => {
        }
        <div className={styles.bannerMsgDiv}>
          <h1>12th Street Construction</h1>
-         <Link href='/contact'><p className={styles.estimateBtn} >Request an Estimate Today!</p></Link>
+         <Link href='/contact'><p className={`btn ${styles.estimateBtn}`} >Request an Estimate Today!</p></Link>
        </div>
      </div>
      <div className={styles.ourProjDiv}>
@@ -29,29 +31,28 @@ const Home = ({projects}) => {
            projects.map ((project, index)=>
               <div className={styles.proDiv}  key={index}>
                 {
-                  <a href={`/project/${project.slug.current}`}>
-                    <p className={styles.proTitle}>{project.title}</p>
-                    <div className={styles.projectImages} style={{ backgroundImage:`url(${urlFor(project.mainImage)})`}}></div>
+                  <a className={styles.proA} href={`/project/${project.slug.current}`}>
+                    <div className={styles.mainDiv}>
+                      <div className={styles.projectImages} style={{ backgroundImage:`url(${urlFor(project.mainImage)})`}}>
+                        <p className={styles.proTitle}>{project.title}</p>
+                      </div>
+                    </div>
+                    
                   </a>
                 }
               </div>
       )}
       </div>
      </div>
-     
+     <div className={styles.estimateDiv}>
+      <Estimate />
+     </div>
    </div>
   )
 };
 
-export const getServerSideProps = async (pageContext) => {
-  const query = `*[_type == "project"] {
-    mainImage,
-    mainImgDisplayLanding,
-    slug,
-    title
-  }`
-  const projects = await sanityClient.fetch(query);
-
+export const getServerSideProps = async () => {
+  const projects = await getAllProjects();
   if (!projects) {
     return {
       props: null,
