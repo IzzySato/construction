@@ -1,0 +1,12 @@
+
+.msgDiv {
+  padding: 5% 10%;
+}
+
+.success {
+  background-color: var(--sucsess-color);
+}
+
+.error {
+  background-color: var(--error-color);
+}

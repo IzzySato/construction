@@ -1,12 +1,18 @@
 import styles from '../../styles/Admin.module.css';
 
+const checkEstimateDone = () => {
+
+};
+
 export const CusList = (customer, session, index) =>
     <li key={index} className={styles.cusList}>
         <div className={styles.topGrid}>
           <h3 className={styles.cusName}>{customer.fName} {customer.lName}</h3>
-            { (session.user.group === ['admin']) ? 
+            { (session.user.group =='admin') ? 
             <div className={styles.btnDiv}>
-              <button className={`btn ${styles.btn}`}>Replay</button>
+              <a className={`btn ${styles.btn}`} href = {`mailto:${customer.email}`}>
+              Replay
+              </a>
               <button className={`btn ${styles.btn}`}>Estimate Done</button>
             </div> : ''
             }

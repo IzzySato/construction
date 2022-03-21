@@ -6,10 +6,10 @@ import {
 import { useSession,
          signOut } from "next-auth/react";
 import { getAllRequests } from '../../data/request';
-import { CusList } from './customerReqList';
+import { CusList } from '../../components/admin/CustomerReqList';
 
 const CustomerRequest = ({customerRequests}) => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const date = new Date();
   const today = `${date.getFullYear()}-${((date.getMonth()+1) < 10) ?
     '0'+(date.getMonth()+1)
@@ -20,9 +20,6 @@ const CustomerRequest = ({customerRequests}) => {
       session &&
       <div className={styles.reqContainer}>
         <button className={`btn`} onClick={() => signOut()}>Sign out</button>
-        {
-                  console.log(JSON.stringify(session.user.group))
-                }
       <h1 className={styles.reqTitle}>Customer Request</h1>
       <div>
         <input className={styles.search} placeholder="search" />
