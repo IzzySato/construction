@@ -19,8 +19,14 @@ const Home = ({projects}) => {
             </div>)
        }
        <div className={styles.bannerMsgDiv}>
-         <h1>12th Street Construction</h1>
-         <Link href='/contact'><p className={`btn ${styles.estimateBtn}`} >Request an Estimate Today!</p></Link>
+         <div className={styles.over}></div>
+         <div className={styles.titleDiv}>
+          <img className={styles.logo} src="../images/logo_300_300.svg" alt="logo"/>
+          <div className={styles.titleTextDiv}>
+            <h1 className={`title ${styles.title}`}>12th Street Construction</h1>
+            <Link href='/contact'><p className={`btn ${styles.estimateBtn}`} >Request an Estimate Today!</p></Link>
+          </div>
+         </div>
        </div>
      </div>
      <div className={styles.ourProjDiv}>
@@ -31,7 +37,7 @@ const Home = ({projects}) => {
            projects.map ((project, index)=>
               <div className={styles.proDiv}  key={index}>
                 {
-                  <a className={styles.proA} href={`/project/${project.slug.current}`}>
+                  <a aria-label={project.title} className={styles.proA} href={`/project/${project.slug.current}`}>
                     <div className={styles.mainDiv}>
                       <div className={styles.projectImages} style={{ backgroundImage:`url(${urlFor(project.mainImage)})`}}>
                         <p className={styles.proTitle}>{project.title}</p>

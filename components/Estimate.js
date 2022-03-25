@@ -1,11 +1,14 @@
 import styles from '../styles/Estimate.module.css';
+import { useRouter } from 'next/router';
 
-const Estimate = (data) => {
+const Estimate = () => {
+
+  const router = useRouter();
 
   const sendEmmailClient = async event => {
     event.preventDefault()
 
-    const res = await fetch('/api/request', {
+    await fetch('/api/request', {
       body: JSON.stringify({
         fName: event.target.fName.value,
         lName: event.target.lName.value,
@@ -19,8 +22,9 @@ const Estimate = (data) => {
       },
       method: 'POST'
     })
-
-    const result = await res.json()
+    .then( res => res.json())
+    .then( data => router.push({pathname: '/message', query: data})
+    );
   }
   
   return (

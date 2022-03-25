@@ -43,11 +43,11 @@
 }
 
 .reqTitle {
-  color: var(--color-one);
+  color: var(--font-color-black);
 }
 
 .todayTitle {
-  color: var(--color-two);
+  color: var(--font-color-black);
 }
 
 .search {
@@ -66,7 +66,7 @@
 
 .todayRequest {
   margin-top: 10%;
-  border: 2px solid var(--color-two);
+  border: 2px solid var(--color-orange);
   padding: 5%;
   border-radius: 15px;
 }
@@ -82,7 +82,7 @@
 .topGrid {
   display: grid;
   margin-top: 5%;
-  grid-template-columns: 60% auto;
+  grid-template-columns: 50% auto;
 }
 
 .cusName {
@@ -97,8 +97,28 @@
   margin-right: 10%;
 }
 
+.cusList {
+  list-style: none;
+}
+
 .cusList:not(:last-child) {
   margin-bottom: 15%;
+}
+
+.estDone {
+  background-color: var(--dark-success-color);
+}
+
+.estDone:hover {
+  background-color: var(--sucsess-color);
+}
+
+.estNotDone {
+  background-color: var(--dark-error-color);
+}
+
+.estNotDone:hover {
+  background-color: var(--error-color);
 }
 
 @media screen and (max-width: 750px) {

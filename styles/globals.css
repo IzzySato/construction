@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 :root {
-  --font-color-one: rgb(42, 42, 42);
-  --font-color-two: rgb(243, 243, 243);
-  --color-one: rgb(57, 57, 124);
-  --color-one-dark: rgb(36, 36, 80);
-  --color-two: rgb(231, 130, 36);
-  --sucsess-color: rgb(162, 240, 162);
-  --error-color: rgb(246, 162, 162);
+  --font-anton: 'Anton', sans-serif;
+  --font-color-black: rgb(42, 42, 42);
+  --font-color-white: rgb(243, 243, 243);
+  --color-black: rgb(10, 10, 10);
+  --color-white: rgb(243, 243, 243);
+  --color-blue: rgb(57, 57, 124);
+  --color-blue-dark: rgb(36, 36, 80);
+  --color-orange: rgb(231, 130, 36);
+  --sucsess-color: rgb(148, 196, 148);
+  --error-color: rgb(180, 138, 138);
+  --dark-success-color: rgb(97, 143, 97);
+  --dark-error-color: rgb(143, 89, 89);
   --google-color: #db3236;
   --google-color-darker: #a32325;
   --shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -18,6 +24,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Lato', sans-serif;
+  background-color: var(--color-white);
 }
 
 a {
@@ -48,7 +55,7 @@ li {
 input {
   padding: 1% 2%;
   border-radius: 5px;
-  border: 0.1px solid black;
+  border: 0.1px solid var(--font-color-black);
   font-size: 1.2rem;
 }
 
@@ -60,11 +67,19 @@ input:focus {
   padding: 2% 5%;
   border-radius: 5px;
   border: none;
-  color: white;
-  background-color: var(--color-one);
+  color: var(--font-color-white);
+  background-color: var(--color-blue);
+  font-size: 1.2rem;
 }
 
 .btn:hover {
   cursor: pointer;
-  background-color: var(--color-one-dark);
+  background-color: var(--color-blue-dark);
+}
+
+.title {
+  font-family: var(--font-anton);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 2.1rem;
 }

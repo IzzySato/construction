@@ -6,14 +6,17 @@ import {
 import { useSession,
          signOut } from "next-auth/react";
 import { getAllRequests } from '../../data/request';
-import { CusList } from '../../components/admin/CustomerReqList';
+import  CusList from '../../components/admin/CustomerReqList';
+import { useState } from 'react';
 
 const CustomerRequest = ({customerRequests}) => {
   const { data: session } = useSession();
+  // const [admin, setAdmin] = useState(session.user);
   const date = new Date();
   const today = `${date.getFullYear()}-${((date.getMonth()+1) < 10) ?
     '0'+(date.getMonth()+1)
     : date.getMonth()+1 }-${date.getDate()}`;
+    
   return (
     <>
       {
@@ -21,6 +24,9 @@ const CustomerRequest = ({customerRequests}) => {
       <div className={styles.reqContainer}>
         <button className={`btn`} onClick={() => signOut()}>Sign out</button>
       <h1 className={styles.reqTitle}>Customer Request</h1>
+      {
+        console.log(session.user)
+      }
       <div>
         <input className={styles.search} placeholder="search" />
         <button className={`btn ${styles.searchBtn}`}>
@@ -32,9 +38,9 @@ const CustomerRequest = ({customerRequests}) => {
         <ul>
         {customerRequests 
         &&
-        customerRequests.map((customer, index) =>
+        customerRequests.map((customer) =>
            (customer.date === today) ?
-            CusList(customer, session, index)
+            <CusList data={customer}/>
             : ''
         )}
         </ul>
@@ -46,7 +52,7 @@ const CustomerRequest = ({customerRequests}) => {
           { customerRequests 
               &&
             customerRequests.map((customer, index) =>
-            CusList(customer, session, index)
+            <CusList data={customer}/>
            )}
           </ul>
         </div>

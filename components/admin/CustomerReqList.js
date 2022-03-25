@@ -1,26 +1,32 @@
 import styles from '../../styles/Admin.module.css';
+import React, { useState } from 'react';
 
-const checkEstimateDone = () => {
-
-};
-
-export const CusList = (customer, session, index) =>
-    <li key={index} className={styles.cusList}>
-        <div className={styles.topGrid}>
-          <h3 className={styles.cusName}>{customer.fName} {customer.lName}</h3>
-            { (session.user.group =='admin') ? 
-            <div className={styles.btnDiv}>
-              <a className={`btn ${styles.btn}`} href = {`mailto:${customer.email}`}>
-              Replay
-              </a>
-              <button className={`btn ${styles.btn}`}>Estimate Done</button>
-            </div> : ''
-            }
-
+const CusList = (props) => {
+  const { fName, lName, email, address, phone, comment, date } = props.data;
+  // const { admin } = props.admin;
+  const [estimateDone, setEstimateDone] = useState(false);
+  
+  return (
+    <li key={props.index} className={styles.cusList}>
+    <div className={styles.topGrid}>
+      <h3 className={styles.cusName}>{fName} {lName}</h3>
+        <div className={styles.btnDiv}>
+          <a className={`btn ${styles.btn}`} href = {`mailto:${email}`}>
+          Reply
+          </a>
+          <button onClick={() => setEstimateDone(true)} 
+                  className={estimateDone ? `btn ${styles.btn} ${styles.estDone}` : `btn ${styles.btn} ${styles.estNotDone}`}>
+           {(estimateDone)? 'Estimate Done' : 'Estimate Not Done'}
+          </button>
         </div>
-        <p>Email: {customer.email}</p>
-        <p>Address: {customer.address}</p>
-        <p>Phone: {customer.phone}</p>
-        <p>comments: {customer.comment}</p>
-        <p className={styles.time}>time: {customer.date}</p>
-    </li>;
+    </div>
+    <p>Email: {email}</p>
+    <p>Address: {address}</p>
+    <p>Phone: {phone}</p>
+    <p>comments: {comment}</p>
+    <p className={styles.time}>time: {date}</p>
+</li>
+  )
+}
+
+export default CusList;

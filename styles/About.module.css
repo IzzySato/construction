@@ -1,0 +1,44 @@
+.container {
+  position: relative;
+}
+
+.shape {
+  border-top: 872px solid var(--color-blue);
+  border-right: 759px solid transparent;
+  z-index: 3;
+  position: absolute;
+}
+
+.shape2 {
+  border-bottom: 722px solid var(--color-white);
+  border-right: 838px solid transparent;
+  z-index: 2;
+  position: absolute;
+}
+
+.titleDiv {
+  width: 400px;
+  height: 800px;
+  position: absolute;
+  z-index: 4;
+  padding: 3% 2%;
+  color: var(--font-color-white);
+}
+
+.title {
+  font-family: var(--font-anton);
+  letter-spacing: 2px;
+}
+
+.desc {
+  line-height: 1.5;
+  font-size: 1.2rem;
+}
+
+.aboutImg {
+  height: 800px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.8;
+}

@@ -7,6 +7,9 @@ const Layout = ({children}) => {
   return (
     <>
     <Head>
+      <meta
+      name="description"
+      content="12 street construction is construction company that concrete, building serives in Lower Mainland area." />
        <title>12th street construction</title>
      </Head>
      <Nav />

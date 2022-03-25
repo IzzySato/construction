@@ -1,5 +1,5 @@
 .prjContainer {
-  margin: 10% 10%;
+  margin: 10% 10% 30% 10%;
 }
 
 .projTitle {
@@ -18,4 +18,12 @@
 .commentSection {
   text-align: left;
   margin-bottom: 10%;
+}
+
+@media screen and (max-width: 750px) {
+
+  .prjContainer {
+    margin: 10% 10% 50% 10%;
+  }
+
 }

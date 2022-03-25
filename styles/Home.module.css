@@ -1,6 +1,5 @@
-
 .mainImage {
-  height: 600px;
+  height: 800px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -11,18 +10,36 @@
   position: relative;
 }
 
-.bannerMsgDiv {
+.over {
+  border-bottom: 800px solid var(--color-white);
+  border-left: 0px solid transparent;
+  border-right: 360px solid transparent;
+  width: 638px;
+  height: 669px;
   position: absolute;
-  background-color: white;
-  padding: 2% 20%;
-  text-align: center;
-  top: 30%;
-  width: 100%;
-  box-shadow: var(--shadow);
+  top: 0;
+  z-index: 2;
+}
+
+.logo {
+  width: 50%;
+}
+
+.titleDiv {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  z-index: 3;
+}
+
+.title {
+  font-size: 2.7rem;
 }
 
 .estimateBtn {
   font-size: 1.3rem;
+  width: 60%;
+  text-align: center;
 }
 
 .ourProjDiv {
@@ -69,7 +86,7 @@
   display: block;
   font-size: 1.5rem;
   padding: 2% 5%;
-  background-color: white;
+  background-color: var(--color-white);
   text-align: center;
 }
 
@@ -77,7 +94,54 @@
   margin: 10% 10% 40% 10%;
 }
 
+
 @media screen and (max-width: 990px) {
+  .bannerMsgDiv {
+    height: 250px;
+    position: absolute;
+    background-color: var(--color-white);
+    padding: 2% 20%;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+
+  .titleDiv {
+    position: static;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-areas: 
+    "logo titleDiv"
+    ;
+    grid-template-columns: 40% auto;
+    padding: 3%;
+    gap: 3%;
+  }
+
+  .over {
+    display: none;
+  }
+
+  .titleTextDiv {
+    grid-area: titleDiv;
+  }
+
+  .logo {
+    grid-area: logo;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  .estimateBtn {
+    width: 100%;
+  }
+
   .projectGrid {
     grid-template-columns: 50% 50%;
     gap: 2%;
@@ -86,16 +150,40 @@
   .projectImages {
     height: 200px;
   }
+
   .projectImages {
     flex-basis: 600px;
   }
 }
 
 @media screen and (max-width: 700px) {
+
+  .bannerMsgDiv {
+    height: 344px;
+  }
+
+  .titleDiv {
+    grid-template-areas: 
+    "logo"
+    "titleDiv"
+    ;
+    grid-template-columns: 100%;
+    padding: 5%;
+  }
+
+  .logo {
+    width: 40%;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
   .projectGrid {
     grid-template-columns: 100%;
     justify-content: center;
   }
+
   .projectImages {
     height: 400px;
   }

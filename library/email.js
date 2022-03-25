@@ -14,27 +14,31 @@ let transporter = nodemailer.createTransport({
   logger : true
 });
 
-const sendEmail = ({fName, lName, tel, email, address, comments}) => {
-  const mailOptions = {
-    from: process.env.MAIL_USERNAME,
-    to: process.env.MAIL_USERNAME,
-    subject: 'New Customer Request',
-    text: `Customer Infomation:
-      Name: ${fName} ${lName}
-      email: ${email}
-      phone: ${tel}
-      address: ${address}
-      comments: ${comments}
-    `
-  }
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
+const sendEmail = ({fName, lName, tel, email, address, comments}) => new Promise((res, rej) => {
+  {
+    const mailOptions = {
+      from: process.env.FROM_EMAIL,
+      to: process.env.TO_EMAIL,
+      subject: 'New Customer Request!!',
+      text: `Customer Infomation:
+        Name: ${fName} ${lName}
+        email: ${email}
+        phone: ${tel}
+        address: ${address}
+        comments: ${comments}
+      `
     }
-  });
-}
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+        rej(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+        res();
+      }
+    });
+  }
+});
 
 export {
   sendEmail

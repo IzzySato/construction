@@ -1,8 +1,23 @@
-
 .msgDiv {
+  border-radius: 10px;
   padding: 5% 10%;
+  margin: 5% 10%;
+  display: grid;
+  grid-template-columns: 40% auto;
+  justify-content: center;
+  align-items: center;
 }
 
+.logo {
+  width: 80%;
+}
+
+.msg {
+  margin: 0 0 10% 0;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: var(--font-color-white);
+}
 .success {
   background-color: var(--sucsess-color);
 }

@@ -20,6 +20,12 @@ const Nav = () => {
             <a className={styles.a} id="about" href="/about" >About us</a>
           </li>
           <li className={styles.li}>
+            <a className={styles.a} id="service" href="/service" >Services</a>
+          </li>
+          <li className={styles.li}>
+            <a className={styles.a} id="projects" href="/projects" >Projects</a>
+          </li>
+          <li className={styles.li}>
               <a className={styles.a} id="contact" href="/contact" >Contact us</a>
           </li>
         </ul>

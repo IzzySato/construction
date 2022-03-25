@@ -26,16 +26,20 @@ export default NextAuth({
         let found = false;
         const allUsers = await getAllUsers();
         allUsers.forEach(
-            ({ fName,
+            ({ _id,
+               fName,
                lName,
                email,
-               group }) => {
+               _ref,
+               userPermission }) => {
           if(email === user.email) {
             adminUser = {
+                        _id,
                         fName,
                         lName,
                         email,
-                        group
+                        userPermission,
+                        _ref,
                       }
             found = true;
           }

@@ -3,6 +3,7 @@
   border-radius: 10px;
   color: var(--font-color-one);
   box-shadow: var(--shadow);
+  margin: 0 20%;
 
 }
 
@@ -19,7 +20,7 @@
   padding: 2%;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
   .container {
     margin: 5%;
   }
