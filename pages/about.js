@@ -15,7 +15,8 @@ const About = ({ aboutData }) => {
               <h1 className={`title`}>{data.title}</h1>
               <p className={styles.desc}>{data.desc}</p>
             </div>
-            <div className={styles.aboutImg} style={{ backgroundImage:`url(${urlFor(data.aboutImg)})`}}></div>
+            {
+            <div className={styles.aboutImg} style={{ backgroundImage:`url(${urlFor(data.aboutImg)})`}}></div>}
           </div>
           )
       }
